@@ -54,7 +54,7 @@ const SearchParams = () => {
 
         <AnimalDropdown />
         <BreedDropdown />
-        <button>submit</button>
+        <button style={{backgroundColor: theme }}>submit</button>
       </form>
       <Results pets={pets} />
     </div>
