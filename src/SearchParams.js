@@ -3,7 +3,7 @@ import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import { async } from "fast-glob";
 import Results from "./Results";
-import ThemeContext from './ThemeContext';
+import ThemeContext from "./ThemeContext";
 
 const SearchParams = () => {
   const [location, updateLocation] = useState("Seattle, WA");
@@ -11,7 +11,7 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -54,7 +54,20 @@ const SearchParams = () => {
 
         <AnimalDropdown />
         <BreedDropdown />
-        <button style={{backgroundColor: theme }}>submit</button>
+        <label htmlFor="theme">
+          theme
+          <select
+          value={theme}
+          onChange={e => setTheme(e.target.value)}
+          onBlur={e => setTheme(e.target.value)}>
+            <option value="peru"> Peru </option>
+            <option value="darkblue"> Dark Blue </option>
+            <option value="mediumorchid"> Orchid </option>
+            <option value="chartreuse"> chartreuse </option>
+
+          </select>
+        </label>
+        <button style={{ backgroundColor: theme }}>submit</button>
       </form>
       <Results pets={pets} />
     </div>

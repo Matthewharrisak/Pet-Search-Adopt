@@ -1,7 +1,7 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
-import ThemeContext from './ThemeContext';
+import ThemeContext from "./ThemeContext";
 class Details extends React.Component {
   state = {
     loading: true
@@ -28,14 +28,16 @@ class Details extends React.Component {
     const { animal, breed, location, description, name, media } = this.state;
     return (
       <div className="details">
-        <Carousel media={media}/>
+        <Carousel media={media} />
         <div>
           <h1> {name} </h1>
           <h2> {`${animal} - ${breed} ${location}`}</h2>
           <ThemeContext.Consumer>
-            {(themeHook) => (
-             <button style={{ backgroundColor: thtmeHook[0]}}> Adopt {name} </button>
-
+            {themeHook => (
+              <button style={{ backgroundColor: themeHook[0] }}>
+                {" "}
+                Adopt {name}{" "}
+              </button>
             )}
           </ThemeContext.Consumer>
 
