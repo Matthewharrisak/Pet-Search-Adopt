@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { render } from "react-dom";
 import SearchParams from "./SearchParams";
 import { Router, Link } from "@reach/router";
 import Details from "./Details";
+import ThemeContext from "./ThemeContext";
 
 // your code is going to go here, for now
 const App = () => {
+  const themeHook = useState('darkblue');
   return (
+    <ThemeContext.Provider value={themeHook}>
     <div>
       <header>
         <Link to="/">Adopt Me!</Link>
@@ -16,6 +19,7 @@ const App = () => {
         <Details path="/details/:id" />
       </Router>
     </div>
+    </ThemeContext.Provider>
   );
 };
 
