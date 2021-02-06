@@ -57,14 +57,14 @@ const SearchParams = () => {
         <label htmlFor="theme">
           theme
           <select
-          value={theme}
-          onChange={e => setTheme(e.target.value)}
-          onBlur={e => setTheme(e.target.value)}>
+            value={theme}
+            onChange={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
+          >
             <option value="peru"> Peru </option>
             <option value="darkblue"> Dark Blue </option>
             <option value="mediumorchid"> Orchid </option>
             <option value="chartreuse"> chartreuse </option>
-
           </select>
         </label>
         <button style={{ backgroundColor: theme }}>submit</button>
